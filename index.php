@@ -30,6 +30,9 @@ require_once "tests/sanitaize.php";
 require_once "tests/Int.php";
 require_once "tests/Float.php";
 require_once "tests/String.php";
+require_once "tests/Phone.php";
+require_once "tests/Array.php";
+require_once "tests/Structure.php";
 class FinalTest
 {
     public function testing()
@@ -38,12 +41,29 @@ class FinalTest
         $filters = [
             'foo' => 'int',
             'bar' => 'float',
-            'dol' => 'string'
+            'dol' => 'phone',
+            'sd' => 'string',
+            'dsds' => 'string',
+            'ar'=> 'Array',
+            'st'=> 'Structure'
         ];
+        $config = [
+            'ar' => 'Array'
+        ];
+        $jsonString = json_encode([
+            'ar' =>
+                ["123",]]);
         $json = json_encode([
             'foo' => '65',
             'bar' => '23423.444',
-            'dol' => 'fhghfgh'
+            'dol' => '+7 (950) 288-56-23',
+            'sd' => 'sdaf',
+            'dsds'=> 'asd',
+            'ar' =>
+                ["123", "fdsf"],
+            'st' => [
+                'jhg'=>'dsa'
+    ]
         ]);
 
         $result = $sanitizer->sanitize($filters, $json);
@@ -52,4 +72,8 @@ class FinalTest
 }
 $ds=new FinalTest();
 $ds->testing();
-phpinfo();
+
+
+$dsad = ('+7 (950) 288-56-23'); // вернет 79096702017
+$sdasaq = applys($dsad);
+echo $sdasaq; // вернет false

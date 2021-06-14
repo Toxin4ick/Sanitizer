@@ -18,6 +18,7 @@ require_once "String.php";
 require_once "Int.php";
 require_once "Float.php";
 require_once "sanitaize.php";
+require_once "Phone.php";
 use PHPUnit\Framework\TestCase;
 use Sanitizer\Sanitizer;
 

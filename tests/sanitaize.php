@@ -1,15 +1,21 @@
 <?php
 namespace Sanitizer;
 
+use Check\Array\ArrayCheck;
 use Check\Float\FloatCheck;
 use Check\Int\IntCheck;
 use Check\String\StringCheck;
+use Check\Phone\PhoneCheck;
+use Check\Structure\StructureCheck;
 class Sanitizer
 {
     public $storeTypes = [
         'float' => FloatCheck::class,
         'int'=>IntCheck::class,
-        'string'=>StringCheck::class
+        'string'=>StringCheck::class,
+        'phone'=> PhoneCheck::class,
+        'Array'=>ArrayCheck::class,
+        'Structure'=>StructureCheck::class
     ];
 
     public function sanitize(array $filters, $data)
@@ -37,7 +43,7 @@ class Sanitizer
                     {
                         for ($i = 0; $i < count($data[$key]); $i++)//Цикл для каждого элемента массива
                         {
-                            $data[$key][$i] = $substitute->apply($data[$key][$i]);//Меняет тип данных из string, на нужный.
+                            $data[$key] = $substitute->apply($data[$key]);//Меняет тип данных из string, на нужный.
                         }
                     }
                     else
