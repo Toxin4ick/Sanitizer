@@ -81,7 +81,7 @@ $ds->testing();
 
 Что выведет, если тип поступивших данных был правильным.
 
-![](C:\Users\Toxin\Documents\Lightshot\Screenshot_272.png)
+![](image/Screenshot_272.png)
 
 Давайте попробуем передать ключ, которого нет в заданных.
 ~~~
@@ -99,7 +99,7 @@ $ds->testing();
             'fog'=>'34'
         ]);
 ~~~
-![](C:\Users\Toxin\Documents\Lightshot\Screenshot_273.png)
+![](image/Screenshot_273.png)
 
 Попробуем передать не верный тип данных.
 ~~~
@@ -115,4 +115,4 @@ $ds->testing();
     ]
         ]);
 ~~~
-![](C:\Users\Toxin\Documents\Lightshot\Screenshot_274.png)
+![](image/Screenshot_274.png)
